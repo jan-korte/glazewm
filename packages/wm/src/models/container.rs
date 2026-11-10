@@ -8,7 +8,7 @@ use enum_as_inner::EnumAsInner;
 use uuid::Uuid;
 use wm_common::{
   ActiveDrag, ContainerDto, DisplayState, GapsConfig, TilingDirection,
-  WindowRuleConfig, WindowState,
+  TilingLayout, WindowRuleConfig, WindowState,
 };
 use wm_platform::{Direction, NativeWindow, Rect, RectDelta};
 
@@ -36,6 +36,9 @@ use crate::{
 /// # Example
 /// Conversion between the different container types:
 /// ```
+/// use wm::models::{Container, DirectionContainer, SplitContainer, TilingContainer};
+/// use wm::traits::{TilingSizeGetters, TilingDirectionGetters};
+///
 /// fn example(split: SplitContainer) {
 ///   // Convert a `SplitContainer` into a `Container`
 ///   let container: Container = split.into(); // Will be a `Container::Split`
